@@ -1,0 +1,16 @@
+<h2>a=<input type="text" id="a"></h2>
+<h2>b=<input type="text" id="b"></h2>
+<h2>c=<input type="text" id="c"></h2>
+<input type="submit" id="send">
+<script>
+    var value = "/" + document.getElementById("a").value + "/" + document.getElementById("b") + "/" + document.getElementById("c");
+
+    function sendRequest(event) {        
+        console.log("dfgjdfhksdfjv");
+        var request = new XMLHttpRequest();
+        request.open("GET", "http://localhost:55683" + value.toString());
+        request.send(value);
+    }
+
+    document.getElementById("send").addEventListener("click", sendRequest);
+</script>
