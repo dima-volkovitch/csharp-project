@@ -1,9 +1,6 @@
 ﻿using ProjectManagementSystem.Entity.Exceptions;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjectManagementSystem.Entity
 {
@@ -22,7 +19,7 @@ namespace ProjectManagementSystem.Entity
         {
             get { return finishDate; }
             set
-            {   if (finishDate <= StartDate)
+            { if (finishDate <= StartDate)
                 {
                     throw new InvalidDateException(INVALID_DATE_EXCEPTION_MESSAGE);
                 }
@@ -32,6 +29,6 @@ namespace ProjectManagementSystem.Entity
 
         public ProjectStatus Status { get; set; } = ProjectStatus.WAITING;
 
-        public IDictionary<User, double> Users { get; set; }
+        public IList<Business> Businesses { get; set; }
     }
 }
