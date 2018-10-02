@@ -1,8 +1,8 @@
-﻿using ProjectManagementSystem.Entity.Exceptions;
+﻿using ProjectManagementSystem.Model.Exceptions;
 using System;
 using System.Collections.Generic;
 
-namespace ProjectManagementSystem.Entity
+namespace ProjectManagementSystem.Model
 {
     public class Project : AEntity
     {
@@ -13,22 +13,22 @@ namespace ProjectManagementSystem.Entity
 
         public string Name { get; set; }
 
-        public DateTime StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
 
-        public DateTime FinishDate
+        public DateTime? FinishDate
         {
             get { return finishDate; }
             set
-            { if (finishDate <= StartDate)
+            { if (value <= StartDate)
                 {
                     throw new InvalidDateException(INVALID_DATE_EXCEPTION_MESSAGE);
                 }
-                finishDate = value;
+                finishDate = (DateTime)value;
             }
         }
 
         public ProjectStatus Status { get; set; } = ProjectStatus.WAITING;
 
-        public IList<Business> Businesses { get; set; }
+        public virtual IList<Business> Businesses { get; set; }
     }
 }
