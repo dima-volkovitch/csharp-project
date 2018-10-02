@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ProjectManagementSystem.Entity
+namespace ProjectManagementSystem.Model
 {
     public class User : AEntity
     {
@@ -25,6 +25,6 @@ namespace ProjectManagementSystem.Entity
 
         public UserRole Role { get; set; } = UserRole.SLAVE;
 
-        public IList<Business> Businesses { get; set; }
+        public virtual IList<Business> Businesses { get; set; }
     }
 }

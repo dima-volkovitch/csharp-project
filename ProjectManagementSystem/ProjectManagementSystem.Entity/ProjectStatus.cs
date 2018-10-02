@@ -1,10 +1,10 @@
 ﻿
-namespace ProjectManagementSystem.Entity
+namespace ProjectManagementSystem.Model
 {
     public enum ProjectStatus : byte
     {
         WAITING,
         DURING,
-        COMPLETED
+        FINISHED
     }
 }

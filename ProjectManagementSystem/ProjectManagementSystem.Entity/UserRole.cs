@@ -1,5 +1,5 @@
 ﻿
-namespace ProjectManagementSystem.Entity
+namespace ProjectManagementSystem.Model
 {
     public enum UserRole : byte
     {

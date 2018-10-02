@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectManagementSystem.Entity.Exceptions
+namespace ProjectManagementSystem.Model.Exceptions
 {
     public class InvalidDateException : Exception
     {
