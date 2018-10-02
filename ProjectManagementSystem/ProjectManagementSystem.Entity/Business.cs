@@ -1,15 +1,15 @@
 ﻿
-namespace ProjectManagementSystem.Entity
+namespace ProjectManagementSystem.Model
 {
     public class Business
     {
-        protected long UserId { get; set; }
+        public long UserId { get; set; }
 
-        protected long ProjectId { get; set; }
+        public long ProjectId { get; set; }
 
-        public User User { get; set; }
+        public virtual User User { get; set; }
 
-        public Project Project { get; set; }
+        public virtual Project Project { get; set; }
 
         public double EmploymentPercentage { get; set; }
     }
