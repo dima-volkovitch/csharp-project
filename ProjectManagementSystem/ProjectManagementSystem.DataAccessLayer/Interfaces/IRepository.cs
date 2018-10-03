@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectManagementSystem.API.Repository
+namespace ProjectManagementSystem.DataAccessLayer.Interfaces
 {
-    public interface IRepository<T> where T:class
+    public interface IRepository<T> where T : class
     {
         IEnumerable<T> GetAll();
 
@@ -16,6 +16,6 @@ namespace ProjectManagementSystem.API.Repository
 
         void Update(T entity);
 
-        void Delete(T entity);
+        void Delete(long id);
     }
 }

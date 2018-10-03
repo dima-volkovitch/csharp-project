@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ProjectManagementSystem.Model
 {
@@ -20,7 +24,7 @@ namespace ProjectManagementSystem.Model
 
         public string Patronymic { get; set; }
 
-        
+
         public string Position { get; set; }
 
         public UserRole Role { get; set; } = UserRole.SLAVE;

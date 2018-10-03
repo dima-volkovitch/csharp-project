@@ -11,6 +11,8 @@ namespace ProjectManagementSystem.DataAccessLayer.Tests
     [TestClass]
     public class ProjectRepositoryTest
     {
+        private const string NAME = "Test Project";
+
         private static int count;
 
         private UnitOfWork uow = new UnitOfWork("UnitTestDB");
@@ -44,7 +46,7 @@ namespace ProjectManagementSystem.DataAccessLayer.Tests
         public void TestDelete()
         {
             Project p = SaveProject();
-            uow.Projects.Delete(p);
+            uow.Projects.Delete(p.Id);
             uow.Save();
             Assert.IsNull(uow.Projects.Get(p.Id));
         }
@@ -53,27 +55,12 @@ namespace ProjectManagementSystem.DataAccessLayer.Tests
         {
             Project p = new Project()
             {
-                Name = "Method Test Get All" + (++count).ToString(),
+                Name = NAME + (++count).ToString(),
                 StartDate = DateTime.MinValue,
                 FinishDate = DateTime.MaxValue,
                 Status = ProjectStatus.FINISHED
             };
-
-            Business b = new Business()
-            {
-                Project = p,
-                User = new User
-                {
-                    FirstName = "Kochka",
-                    LastName = "Kachok",
-                    Patronymic = "QWEWDS"
-                },
-                EmploymentPercentage = 120.0
-
-            };
-
-            p.Businesses = new List<Business>() { b };
-
+            
             uow.Projects.Add(p);
             uow.Save();
             return p;

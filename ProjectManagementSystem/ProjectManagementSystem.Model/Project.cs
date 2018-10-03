@@ -1,6 +1,9 @@
 ﻿using ProjectManagementSystem.Model.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ProjectManagementSystem.Model
 {
@@ -19,7 +22,8 @@ namespace ProjectManagementSystem.Model
         {
             get { return finishDate; }
             set
-            { if (value <= StartDate)
+            {
+                if (value <= StartDate)
                 {
                     throw new InvalidDateException(INVALID_DATE_EXCEPTION_MESSAGE);
                 }

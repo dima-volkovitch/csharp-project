@@ -5,12 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectManagementSystem.API.Repository
+namespace ProjectManagementSystem.DataAccessLayer.Interfaces
 {
-    public interface IUnitOfWork : IDisposable
+    public interface IUnitOfWork
     {
         IRepository<User> Users { get; }
+
         IRepository<Project> Projects { get; }
+
         void Save();
     }
 }

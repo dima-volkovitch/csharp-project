@@ -1,5 +1,5 @@
-﻿using ProjectManagementSystem.API.Repository;
-using ProjectManagementSystem.DataAccessLayer.Context;
+﻿using ProjectManagementSystem.DataAccessLayer.Context;
+using ProjectManagementSystem.DataAccessLayer.Interfaces;
 using ProjectManagementSystem.Model;
 using System;
 using System.Collections.Generic;
