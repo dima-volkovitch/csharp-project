@@ -1,5 +1,5 @@
-﻿using ProjectManagementSystem.API.Repository;
-using ProjectManagementSystem.DataAccessLayer.Context;
+﻿using ProjectManagementSystem.DataAccessLayer.Context;
+using ProjectManagementSystem.DataAccessLayer.Interfaces;
 using ProjectManagementSystem.Model;
 using System;
 using System.Collections.Generic;
@@ -39,9 +39,13 @@ namespace ProjectManagementSystem.DataAccessLayer.Repository
             context.Entry(user).State = EntityState.Modified;
         }
 
-        public void Delete(User user)
+        public void Delete(long id)
         {
-            context.Users.Remove(user);
+            User user = context.Users.Find(id);
+            if (user != null)
+            {
+                context.Users.Remove(user);
+            }
         }
     }
 }

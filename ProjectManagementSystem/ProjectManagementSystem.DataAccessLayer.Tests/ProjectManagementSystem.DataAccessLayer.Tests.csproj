@@ -58,25 +58,23 @@
   <ItemGroup>
     <Compile Include="ProjectRepositoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserRepositoryTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProjectManagementSystem.API\ProjectManagementSystem.API.csproj">
-      <Project>{E8D6E306-0160-4C01-B9CD-C387AF7FFD53}</Project>
-      <Name>ProjectManagementSystem.API</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ProjectManagementSystem.DataAccessLayer\ProjectManagementSystem.DataAccessLayer.csproj">
       <Project>{c81b74e0-9881-4db2-8004-efa585d9f0ec}</Project>
       <Name>ProjectManagementSystem.DataAccessLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ProjectManagementSystem.Entity\ProjectManagementSystem.Model.csproj">
-      <Project>{b5867704-53d3-42d6-b01f-2f96e72b4492}</Project>
+    <ProjectReference Include="..\ProjectManagementSystem.Model\ProjectManagementSystem.Model.csproj">
+      <Project>{ef2e3e27-62e2-4a0f-b7a9-8a3e579283b0}</Project>
       <Name>ProjectManagementSystem.Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
