@@ -49,24 +49,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\PMSContext.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ProjectRepository.cs" />
     <Compile Include="Repository\UnitOfWork.cs" />
     <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProjectManagementSystem.API\ProjectManagementSystem.API.csproj">
-      <Project>{e8d6e306-0160-4c01-b9cd-c387af7ffd53}</Project>
-      <Name>ProjectManagementSystem.API</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ProjectManagementSystem.Entity\ProjectManagementSystem.Model.csproj">
-      <Project>{b5867704-53d3-42d6-b01f-2f96e72b4492}</Project>
-      <Name>ProjectManagementSystem.Model</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <ProjectReference Include="..\ProjectManagementSystem.Model\ProjectManagementSystem.Model.csproj">
+      <Project>{ef2e3e27-62e2-4a0f-b7a9-8a3e579283b0}</Project>
+      <Name>ProjectManagementSystem.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

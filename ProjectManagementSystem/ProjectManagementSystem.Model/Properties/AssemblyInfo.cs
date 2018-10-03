@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("ProjectManagementSystem.Entity")]
+[assembly: AssemblyTitle("ProjectManagementSystem.Model")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ProjectManagementSystem.Entity")]
+[assembly: AssemblyProduct("ProjectManagementSystem.Model")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("b5867704-53d3-42d6-b01f-2f96e72b4492")]
+[assembly: Guid("ef2e3e27-62e2-4a0f-b7a9-8a3e579283b0")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //
