@@ -29,6 +29,6 @@ namespace ProjectManagementSystem.Model
 
         public UserRole Role { get; set; } = UserRole.SLAVE;
 
-        public virtual IList<Business> Businesses { get; set; }
+        public virtual IList<PatisipationHistory> PatisipationHistory { get; set; }
     }
 }

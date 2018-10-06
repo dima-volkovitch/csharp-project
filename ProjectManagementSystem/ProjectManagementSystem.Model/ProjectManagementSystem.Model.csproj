@@ -42,13 +42,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AEntity.cs" />
-    <Compile Include="Business.cs" />
+    <Compile Include="DayOfWeek.cs" />
     <Compile Include="Exceptions\InvalidDateException.cs" />
+    <Compile Include="PatisipationHistory.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="ProjectStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserRole.cs" />
+    <Compile Include="WorkDay.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

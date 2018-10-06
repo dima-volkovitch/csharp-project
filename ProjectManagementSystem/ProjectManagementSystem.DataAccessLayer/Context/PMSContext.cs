@@ -20,7 +20,6 @@ namespace ProjectManagementSystem.DataAccessLayer.Context
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Business>().HasKey(b => new { b.UserId, b.ProjectId });
             modelBuilder.Entity<Project>().Property(p => p.StartDate).HasColumnType("datetime2");
             modelBuilder.Entity<Project>().Property(p => p.FinishDate).HasColumnType("datetime2");
         }
