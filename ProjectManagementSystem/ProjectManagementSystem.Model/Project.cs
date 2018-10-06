@@ -16,9 +16,9 @@ namespace ProjectManagementSystem.Model
 
         public string Name { get; set; }
 
-        public DateTime? StartDate { get; set; }
+        public DateTime StartDate { get; set; }
 
-        public DateTime? FinishDate
+        public DateTime FinishDate
         {
             get { return finishDate; }
             set
@@ -27,12 +27,12 @@ namespace ProjectManagementSystem.Model
                 {
                     throw new InvalidDateException(INVALID_DATE_EXCEPTION_MESSAGE);
                 }
-                finishDate = (DateTime)value;
+                finishDate = value;
             }
         }
 
         public ProjectStatus Status { get; set; } = ProjectStatus.WAITING;
 
-        public virtual IList<Business> Businesses { get; set; }
+        public virtual IList<PatisipationHistory> PatisipationHistory { get; set; }
     }
 }
