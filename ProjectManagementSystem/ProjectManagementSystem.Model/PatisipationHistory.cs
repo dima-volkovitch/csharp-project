@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 
 namespace ProjectManagementSystem.Model
 {
-    public class Business
+    public class PatisipationHistory : AEntity
     {
-        public long UserId { get; set; }
-
-        public long ProjectId { get; set; }
+        public bool IsActive { get; set; }
 
         public virtual User User { get; set; }
 
         public virtual Project Project { get; set; }
 
-        public double EmploymentPercentage { get; set; }
+        public DateTime StartDate { get; set; }
+
+        public DateTime FinishDate { get; set; }
+
+        public virtual IList<WorkDay> WorkDays { get; set; }
     }
 }
