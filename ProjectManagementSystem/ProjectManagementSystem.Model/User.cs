@@ -25,7 +25,7 @@ namespace ProjectManagementSystem.Model
         public string Patronymic { get; set; }
 
 
-        public string Position { get; set; }
+        public UserPosition Position { get; set; }
 
         public UserRole Role { get; set; } = UserRole.SLAVE;
 
