@@ -1,5 +1,5 @@
-﻿using ProjectManagementSystem.DataAccessLayer.Context;
-using ProjectManagementSystem.DataAccessLayer.Interfaces;
+﻿using ProjectManagementSystem.API.Repositories;
+using ProjectManagementSystem.DataAccessLayer.Context;
 using ProjectManagementSystem.Model;
 using System;
 using System.Collections.Generic;
@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace ProjectManagementSystem.DataAccessLayer.Repository
 {
-    public class ProjectRepository: IRepository<Project> 
+    public class ProjectRepository: IProjectRepository
     {
-        private PMSContext context;
+        private GeneralContext context;
 
-        public ProjectRepository(PMSContext context)
+        public ProjectRepository(GeneralContext context)
         {
             this.context = context;
         }

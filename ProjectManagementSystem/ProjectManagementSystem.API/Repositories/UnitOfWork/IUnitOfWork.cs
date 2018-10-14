@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectManagementSystem.DataAccessLayer.Interfaces
+namespace ProjectManagementSystem.API.Repositories.UnitOfWork
 {
     public interface IUnitOfWork
     {
-        IRepository<User> Users { get; }
+        IUserRepository Users { get; }
 
-        IRepository<Project> Projects { get; }
+        IProjectRepository Projects { get; }
 
         void Save();
     }
