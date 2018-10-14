@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace ProjectManagementSystem.DataAccessLayer.Context
 {
-    public class PMSContext : DbContext
+    public class GeneralContext : DbContext
     {
-        public PMSContext() { }
+        public GeneralContext() { }
 
-        public PMSContext(string connectionString) : base(connectionString) { }
+        public GeneralContext(string connectionString) : base(connectionString) { }
 
         public DbSet<User> Users { get; set; }
 

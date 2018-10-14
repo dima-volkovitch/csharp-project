@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ProjectManagementSystem.API.Repositories.UnitOfWork;
 using ProjectManagementSystem.DataAccessLayer.Repository;
+using ProjectManagementSystem.DataAccessLayer.Repository.UnitOfWork;
 using ProjectManagementSystem.Model;
 
 namespace ProjectManagementSystem.DataAccessLayer.Tests
@@ -18,7 +20,13 @@ namespace ProjectManagementSystem.DataAccessLayer.Tests
 
         private static int count;
 
-        private UnitOfWork uow = new UnitOfWork("UnitTestDB");
+        private IUnitOfWork uow;
+
+        [TestInitialize]
+        public void Init()
+        {
+            uow = new UnitOfWork("UnitTestDB");
+        }
 
         [TestMethod]
         public void TestGetAll()
