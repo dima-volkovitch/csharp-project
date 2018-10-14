@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagementSystem.Dat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagementSystem.Model", "ProjectManagementSystem.Model\ProjectManagementSystem.Model.csproj", "{EF2E3E27-62E2-4A0F-B7A9-8A3E579283B0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagementSystem.BusinessLogicLayer", "ProjectManagementSystem.BusinessLogicLayer\ProjectManagementSystem.BusinessLogicLayer.csproj", "{D43F9622-534D-4055-862A-585C694D0356}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagementSystem.API", "ProjectManagementSystem.API\ProjectManagementSystem.API.csproj", "{C674375D-9503-4F06-865D-4592D54D3D1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{EF2E3E27-62E2-4A0F-B7A9-8A3E579283B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF2E3E27-62E2-4A0F-B7A9-8A3E579283B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF2E3E27-62E2-4A0F-B7A9-8A3E579283B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D43F9622-534D-4055-862A-585C694D0356}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D43F9622-534D-4055-862A-585C694D0356}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D43F9622-534D-4055-862A-585C694D0356}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D43F9622-534D-4055-862A-585C694D0356}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C674375D-9503-4F06-865D-4592D54D3D1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C674375D-9503-4F06-865D-4592D54D3D1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C674375D-9503-4F06-865D-4592D54D3D1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C674375D-9503-4F06-865D-4592D54D3D1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

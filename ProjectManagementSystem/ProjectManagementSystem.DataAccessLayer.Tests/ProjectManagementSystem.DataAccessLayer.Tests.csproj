@@ -65,6 +65,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ProjectManagementSystem.API\ProjectManagementSystem.API.csproj">
+      <Project>{c674375d-9503-4f06-865d-4592d54d3d1d}</Project>
+      <Name>ProjectManagementSystem.API</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProjectManagementSystem.DataAccessLayer\ProjectManagementSystem.DataAccessLayer.csproj">
       <Project>{c81b74e0-9881-4db2-8004-efa585d9f0ec}</Project>
       <Name>ProjectManagementSystem.DataAccessLayer</Name>
@@ -74,7 +78,9 @@
       <Name>ProjectManagementSystem.Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Infrastucture\" />
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
