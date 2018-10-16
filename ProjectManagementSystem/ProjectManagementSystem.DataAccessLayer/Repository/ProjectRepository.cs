@@ -10,42 +10,20 @@ using System.Threading.Tasks;
 
 namespace ProjectManagementSystem.DataAccessLayer.Repository
 {
-    public class ProjectRepository: IProjectRepository
+    public class ProjectRepository: GenericRepository<Project>, IProjectRepository
     {
         private GeneralContext context;
+        private DbSet<Project> projects;
 
-        public ProjectRepository(GeneralContext context)
+        public ProjectRepository(GeneralContext context): base(context)
         {
             this.context = context;
+            projects = context.Set<Project>();
         }
 
-        public IEnumerable<Project> GetAll()
+        public IEnumerable<Project> GetProjectsByStatus(ProjectStatus status)
         {
-            return context.Projects;
-        }
-
-        public Project Get(long id)
-        {
-            return context.Projects.Find(id);
-        }
-
-        public void Add(Project project)
-        {
-            context.Projects.Add(project);
-        }
-
-        public void Update(Project project)
-        {
-            context.Entry(project).State = EntityState.Modified;
-        }
-
-        public void Delete(long id)
-        {
-            Project project = context.Projects.Find(id);
-            if(project != null)
-            {
-                context.Projects.Remove(project);
-            }
+            return projects.Where(p => p.Status.Equals(status));
         }
     }
 }

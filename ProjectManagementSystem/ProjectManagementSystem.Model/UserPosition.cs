@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectManagementSystem.Model
 {
-    public enum UserPosition
+    public enum UserPosition : byte
     {
         UNDEFINED,
         FULL_STACK_DEVELOPER,

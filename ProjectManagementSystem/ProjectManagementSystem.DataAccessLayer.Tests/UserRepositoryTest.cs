@@ -76,7 +76,7 @@ namespace ProjectManagementSystem.DataAccessLayer.Tests
 
                 Email = EMAIL,
                 PhoneNumber = PHONE_NUMBER,
-                Position = POSITION
+                Position = UserPosition.FULL_STACK_DEVELOPER
             };
             uow.Users.Add(u);
             uow.Save();

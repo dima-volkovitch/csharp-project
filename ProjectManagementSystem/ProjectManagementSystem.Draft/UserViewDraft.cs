@@ -1,18 +1,14 @@
-﻿using System;
+﻿using ProjectManagementSystem.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectManagementSystem.Model
+namespace ProjectManagementSystem.Draft
 {
-    public class User : AEntity
+    public class UserViewDraft
     {
-        public string Login { get; set; }
-
-        public string Password { get; set; }
-
-
         public string Email { get; set; }
 
         public string PhoneNumber { get; set; }
@@ -28,7 +24,5 @@ namespace ProjectManagementSystem.Model
         public UserPosition Position { get; set; } = UserPosition.UNDEFINED;
 
         public UserRole Role { get; set; } = UserRole.UNDEFINED;
-
-        public virtual IList<PatisipationHistory> PatisipationHistory { get; set; }
     }
 }

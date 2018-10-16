@@ -9,6 +9,6 @@ namespace ProjectManagementSystem.API.Repositories
 {
     public interface IProjectRepository : IRepository<Project>
     {
-
+        IEnumerable<Project> GetProjectsByStatus(ProjectStatus status);
     }
 }
