@@ -10,42 +10,20 @@ using System.Threading.Tasks;
 
 namespace ProjectManagementSystem.DataAccessLayer.Repository
 {
-    public class UserRepository: IUserRepository
+    public class UserRepository: GenericRepository<User>, IUserRepository
     {
         private GeneralContext context;
+        private DbSet<User> users;
 
-        public UserRepository(GeneralContext context)
+        public UserRepository(GeneralContext context) : base(context)
         {
             this.context = context;
+            users = context.Set<User>();
         }
 
-        public IEnumerable<User> GetAll()
+        public User GetByLogin(string login)
         {
-            return context.Users;
-        }
-
-        public User Get(long id)
-        {
-            return context.Users.Find(id);
-        }
-
-        public void Add(User user)
-        {
-            context.Users.Add(user);
-        }
-
-        public void Update(User user)
-        {
-            context.Entry(user).State = EntityState.Modified;
-        }
-
-        public void Delete(long id)
-        {
-            User user = context.Users.Find(id);
-            if (user != null)
-            {
-                context.Users.Remove(user);
-            }
+            return users.Where(u => u.Login.Equals(login)).FirstOrDefault();
         }
     }
 }
