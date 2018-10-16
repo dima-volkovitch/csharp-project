@@ -47,11 +47,15 @@
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="Services\IProjectService.cs" />
+    <Compile Include="Services\IUserAuthorizationService.cs" />
+    <Compile Include="Services\IUserService.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Exceptions\" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\ProjectManagementSystem.Draft\ProjectManagementSystem.Draft.csproj">
+      <Project>{c66ff0b5-024e-4ea6-9229-ea592932ca87}</Project>
+      <Name>ProjectManagementSystem.Draft</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProjectManagementSystem.Model\ProjectManagementSystem.Model.csproj">
       <Project>{ef2e3e27-62e2-4a0f-b7a9-8a3e579283b0}</Project>
       <Name>ProjectManagementSystem.Model</Name>

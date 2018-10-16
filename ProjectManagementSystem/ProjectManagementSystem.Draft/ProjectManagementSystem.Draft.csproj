@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C81B74E0-9881-4DB2-8004-EFA585D9F0EC}</ProjectGuid>
+    <ProjectGuid>{C66FF0B5-024E-4EA6-9229-EA592932CA87}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProjectManagementSystem.DataAccessLayer</RootNamespace>
-    <AssemblyName>ProjectManagementSystem.DataAccessLayer</AssemblyName>
+    <RootNamespace>ProjectManagementSystem.Draft</RootNamespace>
+    <AssemblyName>ProjectManagementSystem.Draft</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,14 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,21 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context\GeneralContext.cs" />
+    <Compile Include="CreateUserDraft.cs" />
+    <Compile Include="ProjectViewDraft.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\GenericRepository.cs" />
-    <Compile Include="Repository\ProjectRepository.cs" />
-    <Compile Include="Repository\UnitOfWork\UnitOfWork.cs" />
-    <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="UserLogInDraft.cs" />
+    <Compile Include="UserViewDraft.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ProjectManagementSystem.API\ProjectManagementSystem.API.csproj">
-      <Project>{c674375d-9503-4f06-865d-4592d54d3d1d}</Project>
-      <Name>ProjectManagementSystem.API</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ProjectManagementSystem.Model\ProjectManagementSystem.Model.csproj">
       <Project>{ef2e3e27-62e2-4a0f-b7a9-8a3e579283b0}</Project>
       <Name>ProjectManagementSystem.Model</Name>

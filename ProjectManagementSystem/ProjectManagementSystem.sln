@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagementSystem.Bus
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagementSystem.API", "ProjectManagementSystem.API\ProjectManagementSystem.API.csproj", "{C674375D-9503-4F06-865D-4592D54D3D1D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagementSystem.Draft", "ProjectManagementSystem.Draft\ProjectManagementSystem.Draft.csproj", "{C66FF0B5-024E-4EA6-9229-EA592932CA87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagementSystem.ConsoleAppFiller", "ProjectManagementSystem.ConsoleAppFiller\ProjectManagementSystem.ConsoleAppFiller.csproj", "{9689B817-67D4-4030-B20A-5E8515EC0ADF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{C674375D-9503-4F06-865D-4592D54D3D1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C674375D-9503-4F06-865D-4592D54D3D1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C674375D-9503-4F06-865D-4592D54D3D1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C66FF0B5-024E-4EA6-9229-EA592932CA87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C66FF0B5-024E-4EA6-9229-EA592932CA87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C66FF0B5-024E-4EA6-9229-EA592932CA87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C66FF0B5-024E-4EA6-9229-EA592932CA87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9689B817-67D4-4030-B20A-5E8515EC0ADF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9689B817-67D4-4030-B20A-5E8515EC0ADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9689B817-67D4-4030-B20A-5E8515EC0ADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9689B817-67D4-4030-B20A-5E8515EC0ADF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
