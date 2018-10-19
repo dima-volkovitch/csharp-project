@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectManagementSystem.Model
 {
-    public class PatisipationHistory : AEntity
+    public class PaticipationHistory : AEntity
     {
         public bool IsActive { get; set; }
 

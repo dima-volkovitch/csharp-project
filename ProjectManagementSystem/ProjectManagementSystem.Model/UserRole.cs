@@ -8,10 +8,10 @@ namespace ProjectManagementSystem.Model
 {
     public enum UserRole : byte
     {
-        UNDEFINED,
-        ADMIN,
-        RESOURCES_MANAGER,
-        PROJECT_MANAGER,
-        SLAVE
+        Undefined = 0,
+        Admin = 1,
+        ResourcesManager = 2,
+        ProjectManager = 3,
+        Slave = 4
     }
 }

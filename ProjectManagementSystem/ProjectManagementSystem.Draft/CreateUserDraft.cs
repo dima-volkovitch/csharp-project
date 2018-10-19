@@ -26,8 +26,8 @@ namespace ProjectManagementSystem.Draft
         public string Patronymic { get; set; }
 
 
-        public UserPosition Position { get; set; } = UserPosition.UNDEFINED;
+        public UserPosition Position { get; set; } = UserPosition.Undefined;
 
-        public UserRole Role { get; set; } = UserRole.UNDEFINED;
+        public UserRole Role { get; set; } = UserRole.Undefined;
     }
 }

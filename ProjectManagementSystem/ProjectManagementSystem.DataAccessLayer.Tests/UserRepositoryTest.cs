@@ -11,12 +11,12 @@ namespace ProjectManagementSystem.DataAccessLayer.Tests
     [TestClass]
     public class UserRepositoryTest
     {
-        private const string FIRST_NAME = "John";
-        private const string LAST_MAME = "Rodrigez";
-        private const string PATRONYMIC = "Johnson";
-        private const string EMAIL = "john.rodrigez@gmail.com";
-        private const string PHONE_NUMBER = "8746512831";
-        private const string POSITION = "Sheep";
+        private const string firstName = "John";
+        private const string lastName = "Rodrigez";
+        private const string patronymic = "Johnson";
+        private const string email = "john.rodrigez@gmail.com";
+        private const string phoneNumber = "8746512831";
+        private const string position = "Sheep";
 
         private static int count;
 
@@ -47,7 +47,7 @@ namespace ProjectManagementSystem.DataAccessLayer.Tests
         public void TestUpdate()
         {
             User u = SaveUser();
-            u.Role = UserRole.PROJECT_MANAGER;
+            u.Role = UserRole.ProjectManager;
             uow.Users.Update(u);
             uow.Save();
             Assert.AreEqual(u, uow.Users.Get(u.Id));
@@ -67,16 +67,16 @@ namespace ProjectManagementSystem.DataAccessLayer.Tests
             count++;
             User u = new User()
             {
-                FirstName = FIRST_NAME + count,
-                LastName = LAST_MAME + count,
-                Patronymic = PATRONYMIC + count,
+                FirstName = firstName + count,
+                LastName = lastName + count,
+                Patronymic = patronymic + count,
 
                 Login = count.ToString(),
                 Password = count.ToString(),
 
-                Email = EMAIL,
-                PhoneNumber = PHONE_NUMBER,
-                Position = UserPosition.FULL_STACK_DEVELOPER
+                Email = email,
+                PhoneNumber = phoneNumber,
+                Position = UserPosition.FullStackDeveloper
             };
             uow.Users.Add(u);
             uow.Save();
