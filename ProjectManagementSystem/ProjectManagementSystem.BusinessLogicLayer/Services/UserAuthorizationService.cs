@@ -3,6 +3,7 @@ using ProjectManagementSystem.API.Services;
 using ProjectManagementSystem.BusinessLogicLayer.Exceptions;
 using ProjectManagementSystem.Draft;
 using ProjectManagementSystem.Model;
+using ProjectManagementSystem.BusinessLogicLayer.Token;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +14,10 @@ namespace ProjectManagementSystem.BusinessLogicLayer.Services
 {
     class UserAuthorizationService : IUserAuthorizationService
     {
-        private const string INVALID_LOGIN = "Invalid Login! User with this login does not exist.";
-        private const string INVALID_PASSWORD = "Invalid password! User input invalid password.";
+        private const string invalidLogin = "Invalid Login! User with this login does not exist.";
+        private const string invalidPassword = "Invalid password! User input invalid password.";
+        private const string invalidToken = "Invalid jwt! Signature is not valid.";
+        private const string userNotFound = "Invalid id! User with this id not found.";
 
         private IUnitOfWork uow;
 
@@ -24,28 +27,40 @@ namespace ProjectManagementSystem.BusinessLogicLayer.Services
         }
 
 
-        public void LogIn(UserLogInDraft draft)
+        public string LogIn(UserLogInDraft draft)
         {
-            User u = uow.Users.GetByLogin(draft.Login);
-            if(u == null)
+            User user = uow.Users.GetByLogin(draft.Login);
+            if(user == null)
             {
-                throw new InvalidLoginException(INVALID_LOGIN);
-            }
-            if (!u.Password.Equals(draft.Password))
-            {
-                throw new InvalidPasswordException(INVALID_PASSWORD);
+                throw new InvalidLoginException(invalidLogin);
             }
 
-            string token = Cryptographer.Encode(u.Login, draft.Password);
-            if (!TokenDictionary.Dictionary.ContainsToken(token))
+            string md5Password = Cryptographer.MD5Hash(draft.Password);
+            if (!user.Password.Equals(md5Password))
             {
-                TokenDictionary.Dictionary.Add(token, u.Id);
+                throw new InvalidPasswordException(invalidPassword);
             }
+            
+            return JwtWorker.GenerateTokenString(new Jwt(new Header(),
+                new Payload() { User = user.Id }),
+                user.Password); 
         }
-
-        public void LogOut(string token)
+        
+        public User GetUser(string token)
         {
-            TokenDictionary.Dictionary.Remove(token);
+            Jwt jwt = JwtWorker.DecodeTokenString(token);
+            User user = uow.Users.Get(jwt.Payload.User);
+            if(user == null)
+            {
+                throw new UserNotFoundException(userNotFound);
+            }
+
+            if(!JwtWorker.IsValidSignature(jwt, user.Password))
+            {
+                throw new InvalidTokenException(invalidToken);
+            }
+
+            return user;
         }
     }
     

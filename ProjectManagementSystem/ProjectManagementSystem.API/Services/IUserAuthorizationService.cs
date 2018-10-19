@@ -1,4 +1,5 @@
 ﻿using ProjectManagementSystem.Draft;
+using ProjectManagementSystem.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace ProjectManagementSystem.API.Services
 {
     public interface IUserAuthorizationService
     {
-        void LogIn(UserLogInDraft draft);
+        string LogIn(UserLogInDraft draft);
 
-        void LogOut(string token);
+        User GetUser(string token);
     }
 }
