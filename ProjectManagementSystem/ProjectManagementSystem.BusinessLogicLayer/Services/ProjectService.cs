@@ -63,18 +63,7 @@ namespace ProjectManagementSystem.BusinessLogicLayer.Services
 
         public void RemoveUserFromProject(long ProjectId, long UserId, string token)
         {
-            User currentUser = uow.Users.Get(TokenDictionary.Dictionary[token]);
-            if(currentUser.Role != UserRole.Admin)
-            {
-                throw new CloseAccessException(NOT_ADMIN);
-            }
-
-            Project project = uow.Projects.Get(ProjectId);
-            User user = uow.Users.Get(UserId);
-            project.PatisipationHistory.Where(ph => ph.User.Equals(user) && ph.IsActive)
-                .FirstOrDefault().IsActive = false;
-            uow.Projects.Update(project);
-            uow.Save();
+           
         }
     }
 }
