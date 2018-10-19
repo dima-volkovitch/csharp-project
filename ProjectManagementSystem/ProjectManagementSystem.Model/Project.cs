@@ -9,7 +9,7 @@ namespace ProjectManagementSystem.Model
 {
     public class Project : AEntity
     {
-        private const string INVALID_DATE_EXCEPTION_MESSAGE = "Exception! Finish date is less then start date";
+        private const string InvalidDateExceptionMessage = "Exception! Finish date is less then start date";
 
         private DateTime finishDate;
 
@@ -25,14 +25,14 @@ namespace ProjectManagementSystem.Model
             {
                 if (value <= StartDate)
                 {
-                    throw new InvalidDateException(INVALID_DATE_EXCEPTION_MESSAGE);
+                    throw new InvalidDateException(InvalidDateExceptionMessage);
                 }
                 finishDate = value;
             }
         }
 
-        public ProjectStatus Status { get; set; } = ProjectStatus.WAITING;
+        public ProjectStatus Status { get; set; } = ProjectStatus.Waiting;
 
-        public virtual IList<PatisipationHistory> PatisipationHistory { get; set; }
+        public virtual IList<PaticipationHistory> PatisipationHistory { get; set; }
     }
 }

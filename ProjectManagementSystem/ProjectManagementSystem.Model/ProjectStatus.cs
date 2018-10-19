@@ -8,8 +8,9 @@ namespace ProjectManagementSystem.Model
 {
     public enum ProjectStatus : byte
     {
-        WAITING,
-        DURING,
-        FINISHED
+        Undefined = 0,
+        Waiting = 1,
+        During = 2,
+        Finished = 3
     }
 }

@@ -13,7 +13,7 @@ namespace ProjectManagementSystem.DataAccessLayer.Tests
     [TestClass]
     public class ProjectRepositoryTest
     {
-        private const string NAME = "Test Project";
+        private const string name = "Test Project";
 
         private static int count;
 
@@ -44,7 +44,7 @@ namespace ProjectManagementSystem.DataAccessLayer.Tests
         public void TestUpdate()
         {
             Project p = SaveProject();
-            p.Status = ProjectStatus.DURING;
+            p.Status = ProjectStatus.During;
             uow.Projects.Update(p);
             uow.Save();
             Assert.AreEqual(p, uow.Projects.Get(p.Id));
@@ -63,10 +63,10 @@ namespace ProjectManagementSystem.DataAccessLayer.Tests
         {
             Project p = new Project()
             {
-                Name = NAME + (++count).ToString(),
+                Name = name + (++count).ToString(),
                 StartDate = DateTime.MinValue,
                 FinishDate = DateTime.MaxValue,
-                Status = ProjectStatus.FINISHED
+                Status = ProjectStatus.Finished
             };
             
             uow.Projects.Add(p);

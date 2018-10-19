@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectManagementSystem.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,6 @@ namespace ProjectManagementSystem.Draft
 
         public DateTime FinishDate { get; set; }
 
-        public ProjectStatus Status { get; set; } = ProjectStatus.WAITING;
+        public ProjectStatus Status { get; set; } = ProjectStatus.Waiting;
     }
 }

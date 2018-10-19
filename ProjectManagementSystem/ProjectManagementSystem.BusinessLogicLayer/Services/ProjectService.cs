@@ -35,28 +35,24 @@ namespace ProjectManagementSystem.BusinessLogicLayer.Services
 
         public IList<ProjectViewDraft> GetAllWaitingProjects()
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<Project, ProjectViewDraft>());
             return Mapper.Map<IEnumerable<Project>, IList<ProjectViewDraft>>
-                (uow.Projects.GetProjectsByStatus(ProjectStatus.WAITING));
+                (uow.Projects.GetProjectsByStatus(ProjectStatus.Waiting));
         }
 
         public IList<ProjectViewDraft> GetAllDuringProjects()
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<Project, ProjectViewDraft>());
             return Mapper.Map<IEnumerable<Project>, IList<ProjectViewDraft>>
-                (uow.Projects.GetProjectsByStatus(ProjectStatus.DURING));
+                (uow.Projects.GetProjectsByStatus(ProjectStatus.During));
         }
 
         public IList<ProjectViewDraft> GetAllFinishedProjects()
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<Project, ProjectViewDraft>());
             return Mapper.Map<IEnumerable<Project>, IList<ProjectViewDraft>>
-                (uow.Projects.GetProjectsByStatus(ProjectStatus.FINISHED));
+                (uow.Projects.GetProjectsByStatus(ProjectStatus.Finished));
         }
 
         public IList<ProjectViewDraft> GetAllProjects()
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<Project, ProjectViewDraft>());
             return Mapper.Map<IEnumerable<Project>, IList<ProjectViewDraft>>(uow.Projects.GetAll());
         }
 
@@ -68,7 +64,7 @@ namespace ProjectManagementSystem.BusinessLogicLayer.Services
         public void RemoveUserFromProject(long ProjectId, long UserId, string token)
         {
             User currentUser = uow.Users.Get(TokenDictionary.Dictionary[token]);
-            if(currentUser.Role != UserRole.ADMIN)
+            if(currentUser.Role != UserRole.Admin)
             {
                 throw new CloseAccessException(NOT_ADMIN);
             }

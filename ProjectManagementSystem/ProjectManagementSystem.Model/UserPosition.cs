@@ -8,9 +8,9 @@ namespace ProjectManagementSystem.Model
 {
     public enum UserPosition : byte
     {
-        UNDEFINED,
-        FULL_STACK_DEVELOPER,
-        FRONT_END_DEVELOPER,
-        BACK_AND_DEVENOLER
+        Undefined = 0,
+        FullStackDeveloper = 1,
+        FrontEndDeveloper = 2,
+        BackEndDeveloper = 3
     }
 }

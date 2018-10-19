@@ -25,10 +25,10 @@ namespace ProjectManagementSystem.Model
         public string Patronymic { get; set; }
 
 
-        public UserPosition Position { get; set; } = UserPosition.UNDEFINED;
+        public UserPosition Position { get; set; } = UserPosition.Undefined;
 
-        public UserRole Role { get; set; } = UserRole.UNDEFINED;
+        public UserRole Role { get; set; } = UserRole.Undefined;
 
-        public virtual IList<PatisipationHistory> PatisipationHistory { get; set; }
+        public virtual IList<PaticipationHistory> PatisipationHistory { get; set; }
     }
 }
