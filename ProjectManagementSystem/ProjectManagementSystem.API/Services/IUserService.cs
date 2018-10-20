@@ -11,6 +11,8 @@ namespace ProjectManagementSystem.API.Services
     {
         void CreateUser(CreateUserDraft draft, string token);
 
-        void DeleteUser(long id, string token);
+        void DeleteUser(long userId, string token);
+
+        IList<ProjectViewDraft> GetCurrentUserProjects(long userId, string token);
     }
 }

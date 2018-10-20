@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectManagementSystem.Draft
 {
-    public class UserLogInDraft : IDraft
+    public interface IDraft
     {
-        public string Login { get; set; }
-
-        public string Password { get; set; }
     }
 }

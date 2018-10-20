@@ -29,6 +29,6 @@ namespace ProjectManagementSystem.Model
 
         public UserRole Role { get; set; } = UserRole.Undefined;
 
-        public virtual IList<PaticipationHistory> PatisipationHistory { get; set; }
+        public virtual IList<PaticipationHistory> PaticipationHistory { get; set; }
     }
 }

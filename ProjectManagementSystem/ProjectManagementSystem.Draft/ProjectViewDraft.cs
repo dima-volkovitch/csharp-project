@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace ProjectManagementSystem.Draft
 {
-    public class ProjectViewDraft
+    public class ProjectViewDraft : IDraft
     {
+        public long Id { get; set; }
+
         public string Name { get; set; }
 
         public DateTime StartDate { get; set; }
