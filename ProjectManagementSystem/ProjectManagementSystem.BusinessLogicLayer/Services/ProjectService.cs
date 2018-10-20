@@ -2,6 +2,7 @@
 using ProjectManagementSystem.API.Repositories.UnitOfWork;
 using ProjectManagementSystem.API.Services;
 using ProjectManagementSystem.BusinessLogicLayer.Exceptions;
+using ProjectManagementSystem.BusinessLogicLayer.Utils;
 using ProjectManagementSystem.Draft;
 using ProjectManagementSystem.Model;
 using System;
@@ -14,56 +15,68 @@ namespace ProjectManagementSystem.BusinessLogicLayer.Services
 {
     public class ProjectService : IProjectService
     {
-        private const string NOT_ADMIN = "User hasnt access! User arent admin.";
+        private const string closedAccess = "Access closed! Your access level does not match the desired level.";
+
+        private IUserAuthorizationService auth;
 
         private IUnitOfWork uow;
 
-        public ProjectService(IUnitOfWork uow)
+        public ProjectService(IUnitOfWork uow, IUserAuthorizationService auth)
         {
             this.uow = uow;
-        }
-
-        public void AddUserToProject(long ProjectId, long UserId, string token)
-        {
-            throw new NotImplementedException();
+            this.auth = auth;
         }
 
         public void CreateProject(ProjectViewDraft draft, string token)
         {
-            throw new NotImplementedException();
+            User currentUser = auth.GetUser(token);
+            if(currentUser.Role != UserRole.ResourcesManager)
+            {
+                throw new ClosedAccessException(closedAccess);
+            }
+
+            DraftPropertiesChecker.Check(draft);
+            uow.Projects.Add(Mapper.Map<ProjectViewDraft, Project>(draft));
+            uow.Save();
         }
 
-        public IList<ProjectViewDraft> GetAllWaitingProjects()
+        public void DeleteProject(long projectId, string token)
         {
-            return Mapper.Map<IEnumerable<Project>, IList<ProjectViewDraft>>
-                (uow.Projects.GetProjectsByStatus(ProjectStatus.Waiting));
+            User currentUser = auth.GetUser(token);
+            if (currentUser.Role != UserRole.ResourcesManager)
+            {
+                throw new ClosedAccessException(closedAccess);
+            }
+
+            uow.Projects.Delete(projectId);
+            uow.Save();
         }
 
-        public IList<ProjectViewDraft> GetAllDuringProjects()
+        public void FinishProject(long projectId, string token)
         {
-            return Mapper.Map<IEnumerable<Project>, IList<ProjectViewDraft>>
-                (uow.Projects.GetProjectsByStatus(ProjectStatus.During));
+            User currentUser = auth.GetUser(token);
+            if (currentUser.Role != UserRole.ResourcesManager)
+            {
+                throw new ClosedAccessException(closedAccess);
+            }
+
+            Project project = uow.Projects.Get(projectId);
+            project.Status = ProjectStatus.Finished;
+            project.FinishDate = DateTime.Now;
+            uow.Projects.Update(project);
+            uow.Save();
         }
 
-        public IList<ProjectViewDraft> GetAllFinishedProjects()
+        public IList<UserViewDraft> GetCurrentProjectUsers(long projectId, string token)
         {
-            return Mapper.Map<IEnumerable<Project>, IList<ProjectViewDraft>>
-                (uow.Projects.GetProjectsByStatus(ProjectStatus.Finished));
-        }
+            User currentUser = auth.GetUser(token);
+            if(uow.Projects.IsUserPaticipateInProject(projectId, currentUser) 
+                || currentUser.Role == UserRole.ResourcesManager)
+            {
+                return Mapper.Map<IEnumerable<User>, IList<UserViewDraft>>(uow.Projects.GetActiveProjectUsers(projectId));
+            }
 
-        public IList<ProjectViewDraft> GetAllProjects()
-        {
-            return Mapper.Map<IEnumerable<Project>, IList<ProjectViewDraft>>(uow.Projects.GetAll());
-        }
-
-        public IList<UserViewDraft> GetUsersByProject(long ProjectId, string token)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RemoveUserFromProject(long ProjectId, long UserId, string token)
-        {
-           
+            throw new ClosedAccessException(closedAccess);
         }
     }
 }

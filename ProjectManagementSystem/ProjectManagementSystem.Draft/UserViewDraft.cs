@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace ProjectManagementSystem.Draft
 {
-    public class UserViewDraft
+    public class UserViewDraft : IDraft
     {
+        public long Id { get; set; }
+
         public string Email { get; set; }
 
         public string PhoneNumber { get; set; }
