@@ -33,6 +33,6 @@ namespace ProjectManagementSystem.Model
 
         public ProjectStatus Status { get; set; } = ProjectStatus.Waiting;
 
-        public virtual IList<PaticipationHistory> PatisipationHistory { get; set; }
+        public virtual IList<PaticipationHistory> PaticipationHistory { get; set; }
     }
 }

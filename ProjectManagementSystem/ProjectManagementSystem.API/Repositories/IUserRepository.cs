@@ -10,5 +10,9 @@ namespace ProjectManagementSystem.API.Repositories
     public interface IUserRepository : IRepository<User>
     {
         User GetByLogin(string login);
+
+        IEnumerable<Project> GetActiveUserProjects(long userId);
+
+        IEnumerable<Project> GetActiveUserProjects(User user);
     }
 }

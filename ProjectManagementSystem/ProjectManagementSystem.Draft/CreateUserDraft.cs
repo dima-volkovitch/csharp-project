@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectManagementSystem.Draft
 {
-    public class CreateUserDraft
+    public class CreateUserDraft : IDraft
     {
         public string Login { get; set; }
 

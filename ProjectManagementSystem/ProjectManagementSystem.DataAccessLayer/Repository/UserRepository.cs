@@ -25,5 +25,19 @@ namespace ProjectManagementSystem.DataAccessLayer.Repository
         {
             return users.Where(u => u.Login.Equals(login)).FirstOrDefault();
         }
+
+        public IEnumerable<Project> GetActiveUserProjects(long userId)
+        {
+            return users.Find(userId).PaticipationHistory.
+                Where(paticipationHistory => paticipationHistory.IsActive).
+                Select(paticipationHistory => paticipationHistory.Project);
+        }
+
+        public IEnumerable<Project> GetActiveUserProjects(User user)
+        {
+            return user.PaticipationHistory.
+                Where(paticipationHistory => paticipationHistory.IsActive).
+                Select(paticipationHistory => paticipationHistory.Project);
+        }
     }
 }
