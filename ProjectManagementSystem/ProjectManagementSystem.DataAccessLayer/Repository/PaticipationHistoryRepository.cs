@@ -21,5 +21,23 @@ namespace ProjectManagementSystem.DataAccessLayer.Repository
             this.context = context;
             paticipationHistories = context.Set<PaticipationHistory>();
         }
+
+        public IEnumerable<PaticipationHistory> GetByUserAndProjectId(long userId, long projectId,
+            bool? isActive = null)
+        {
+            if(isActive == null)
+            {
+                return paticipationHistories;
+            }
+            return paticipationHistories.Where(paticipationHistory =>
+                paticipationHistory.IsActive == isActive);
+        }
+
+        public bool IsExistActive(long userId, long projectId)
+        {
+            return paticipationHistories.
+                Where(paticipationHistory => paticipationHistory.User.Id == userId
+                && paticipationHistory.Project.Id == projectId).FirstOrDefault() != null;
+        }
     }
 }

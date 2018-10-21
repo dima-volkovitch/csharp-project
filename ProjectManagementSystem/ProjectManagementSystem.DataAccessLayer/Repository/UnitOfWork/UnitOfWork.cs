@@ -16,6 +16,7 @@ namespace ProjectManagementSystem.DataAccessLayer.Repository.UnitOfWork
         private GeneralContext context;
         private UserRepository userRepository;
         private ProjectRepository projectRepository;
+        private PaticipationHistoryRepository paticipationHistoryRepository;
 
         public UnitOfWork(string connectionString)
         {
@@ -43,6 +44,18 @@ namespace ProjectManagementSystem.DataAccessLayer.Repository.UnitOfWork
                     projectRepository = new ProjectRepository(context);
                 }
                 return projectRepository;
+            }
+        }
+
+        public IPaticipationHistoryRepository PaticipationHistories
+        {
+            get
+            {
+                if (paticipationHistoryRepository == null)
+                {
+                    paticipationHistoryRepository = new PaticipationHistoryRepository(context);
+                }
+                return paticipationHistoryRepository;
             }
         }
 
