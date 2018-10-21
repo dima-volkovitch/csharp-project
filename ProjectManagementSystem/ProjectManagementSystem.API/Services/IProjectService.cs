@@ -9,12 +9,14 @@ namespace ProjectManagementSystem.API.Services
 {
     public interface IProjectService
     {
-        void CreateProject(ProjectViewDraft draft, string token);
+        ProjectViewDraft GetProjectById(long id);
 
-        void DeleteProject(long projectId, string token);
+        void CreateProject(CreateProjectDraft draft);
 
-        void FinishProject(long projectId, string token);
+        void DeleteProject(long projectId);
 
-        IList<ProjectViewDraft> GetCurrentProjectUsers(long projectId, string token);
+        void FinishProject(long projectId);
+
+        IList<UserViewDraft> GetCurrentProjectUsers(long projectId);
     }
 }

@@ -23,6 +23,8 @@ namespace ProjectManagementSystem.DataAccessLayer.Context
         {
             modelBuilder.Entity<Project>().Property(p => p.StartDate).HasColumnType("datetime2");
             modelBuilder.Entity<Project>().Property(p => p.FinishDate).HasColumnType("datetime2");
+            modelBuilder.Entity<PaticipationHistory>().Property(ph => ph.FinishDate).HasColumnType("datetime2");
+            modelBuilder.Entity<PaticipationHistory>().Property(ph => ph.StartDate).HasColumnType("datetime2");
         }
     }
 }

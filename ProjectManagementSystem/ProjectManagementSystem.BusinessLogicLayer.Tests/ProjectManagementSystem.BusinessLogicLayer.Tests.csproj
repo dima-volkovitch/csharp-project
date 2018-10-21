@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A4956200-86AE-434F-AE93-8AD08A2F1D83}</ProjectGuid>
+    <ProjectGuid>{21DEE55D-41CC-4AB9-AD11-9B7E75F0F563}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProjectManagementSystem.DataAccessLayer.Tests</RootNamespace>
-    <AssemblyName>ProjectManagementSystem.DataAccessLayer.Tests</AssemblyName>
+    <RootNamespace>ProjectManagementSystem.BusinessLogicLayer.Tests</RootNamespace>
+    <AssemblyName>ProjectManagementSystem.BusinessLogicLayer.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -39,12 +39,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
     </Reference>
@@ -54,12 +58,15 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ProjectRepositoryTest.cs" />
+    <Compile Include="ProjectServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PaticipationHistoryReposicoryTest.cs" />
-    <Compile Include="UserRepositoryTest.cs" />
+    <Compile Include="UserAuthorizationServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -70,17 +77,22 @@
       <Project>{c674375d-9503-4f06-865d-4592d54d3d1d}</Project>
       <Name>ProjectManagementSystem.API</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProjectManagementSystem.BusinessLogicLayer\ProjectManagementSystem.BusinessLogicLayer.csproj">
+      <Project>{d43f9622-534d-4055-862a-585c694d0356}</Project>
+      <Name>ProjectManagementSystem.BusinessLogicLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProjectManagementSystem.DataAccessLayer\ProjectManagementSystem.DataAccessLayer.csproj">
       <Project>{c81b74e0-9881-4db2-8004-efa585d9f0ec}</Project>
       <Name>ProjectManagementSystem.DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjectManagementSystem.Draft\ProjectManagementSystem.Draft.csproj">
+      <Project>{c66ff0b5-024e-4ea6-9229-ea592932ca87}</Project>
+      <Name>ProjectManagementSystem.Draft</Name>
     </ProjectReference>
     <ProjectReference Include="..\ProjectManagementSystem.Model\ProjectManagementSystem.Model.csproj">
       <Project>{ef2e3e27-62e2-4a0f-b7a9-8a3e579283b0}</Project>
       <Name>ProjectManagementSystem.Model</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Infrastucture\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

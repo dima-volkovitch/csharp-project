@@ -13,7 +13,7 @@ using ProjectManagementSystem.BusinessLogicLayer.Utils;
 
 namespace ProjectManagementSystem.BusinessLogicLayer.Services
 {
-    class UserAuthorizationService : IUserAuthorizationService
+    public class UserAuthorizationService : IUserAuthorizationService
     {
         private const string invalidLogin = "Invalid Login! User with this login does not exist.";
         private const string invalidPassword = "Invalid password! User input invalid password.";
@@ -27,6 +27,22 @@ namespace ProjectManagementSystem.BusinessLogicLayer.Services
             this.uow = uow;
         }
 
+        private User GetUser(string token)
+        {
+            Jwt jwt = JwtWorker.DecodeTokenString(token);
+            User user = uow.Users.Get(jwt.Payload.User);
+            if (user == null)
+            {
+                throw new UserNotFoundException(userNotFound);
+            }
+
+            if (!JwtWorker.IsValidSignature(jwt, user.Password))
+            {
+                throw new InvalidTokenException(invalidToken);
+            }
+
+            return user;
+        }
 
         public string LogIn(UserLogInDraft draft)
         {
@@ -46,23 +62,25 @@ namespace ProjectManagementSystem.BusinessLogicLayer.Services
                 new Payload() { User = user.Id }),
                 user.Password); 
         }
-        
-        public User GetUser(string token)
+         
+        public bool IsAdmin(string token)
         {
-            Jwt jwt = JwtWorker.DecodeTokenString(token);
-            User user = uow.Users.Get(jwt.Payload.User);
-            if(user == null)
-            {
-                throw new UserNotFoundException(userNotFound);
-            }
-
-            if(!JwtWorker.IsValidSignature(jwt, user.Password))
-            {
-                throw new InvalidTokenException(invalidToken);
-            }
-
-            return user;
+            return GetUser(token).Role == UserRole.Admin;
         }
-    }
-    
+
+        public bool IsResourcesManager(string token)
+        {
+            return GetUser(token).Role == UserRole.ResourcesManager;
+        }
+
+        public bool IsProjectManager(string token)
+        {
+            return GetUser(token).Role == UserRole.ProjectManager;
+        }
+
+        public bool IsSimpleUser(string token)
+        {
+            return GetUser(token).Role == UserRole.Slave;
+        }
+    }    
 }

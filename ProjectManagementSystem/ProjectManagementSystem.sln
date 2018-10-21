@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagementSystem.Dra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagementSystem.ConsoleAppFiller", "ProjectManagementSystem.ConsoleAppFiller\ProjectManagementSystem.ConsoleAppFiller.csproj", "{9689B817-67D4-4030-B20A-5E8515EC0ADF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagementSystem.BusinessLogicLayer.Tests", "ProjectManagementSystem.BusinessLogicLayer.Tests\ProjectManagementSystem.BusinessLogicLayer.Tests.csproj", "{21DEE55D-41CC-4AB9-AD11-9B7E75F0F563}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{9689B817-67D4-4030-B20A-5E8515EC0ADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9689B817-67D4-4030-B20A-5E8515EC0ADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9689B817-67D4-4030-B20A-5E8515EC0ADF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21DEE55D-41CC-4AB9-AD11-9B7E75F0F563}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21DEE55D-41CC-4AB9-AD11-9B7E75F0F563}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21DEE55D-41CC-4AB9-AD11-9B7E75F0F563}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21DEE55D-41CC-4AB9-AD11-9B7E75F0F563}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
