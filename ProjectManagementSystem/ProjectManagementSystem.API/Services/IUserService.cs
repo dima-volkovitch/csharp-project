@@ -9,10 +9,10 @@ namespace ProjectManagementSystem.API.Services
 {
     public interface IUserService
     {
-        void CreateUser(CreateUserDraft draft, string token);
+        void CreateUser(CreateUserDraft draft);
 
-        void DeleteUser(long userId, string token);
+        void DeleteUser(long userId);
 
-        IList<ProjectViewDraft> GetCurrentUserProjects(long userId, string token);
+        IList<ProjectViewDraft> GetCurrentUserProjects(long userId);
     }
 }

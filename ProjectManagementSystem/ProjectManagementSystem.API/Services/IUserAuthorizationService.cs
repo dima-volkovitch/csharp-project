@@ -12,6 +12,6 @@ namespace ProjectManagementSystem.API.Services
     {
         string LogIn(UserLogInDraft draft);
 
-        User GetUser(string token);
+        bool IsAdmin(string token);
     }
 }

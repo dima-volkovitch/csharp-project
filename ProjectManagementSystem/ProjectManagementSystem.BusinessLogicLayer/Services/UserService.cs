@@ -15,26 +15,15 @@ namespace ProjectManagementSystem.BusinessLogicLayer.Services
 {
     public class UserService : IUserService
     {
-        private const string closedAccess = "Access closed! Your access level does not match the desired level.";
-
-        private IUserAuthorizationService auth;
-
         private IUnitOfWork uow;
 
         public UserService(IUnitOfWork uow, IUserAuthorizationService auth)
         {
             this.uow = uow;
-            this.auth = auth;
         }
 
-        public void CreateUser(CreateUserDraft draft, string token)
+        public void CreateUser(CreateUserDraft draft)
         {
-            User currentUser = auth.GetUser(token);
-            if(currentUser.Role != UserRole.Admin)
-            {
-                throw new ClosedAccessException(closedAccess);
-            }
-
             DraftPropertiesChecker.Check(draft);
             User user = Mapper.Map<CreateUserDraft, User>(draft);
             user.Password = Cryptographer.MD5Hash(user.Password);
@@ -42,31 +31,14 @@ namespace ProjectManagementSystem.BusinessLogicLayer.Services
             uow.Save();
         }
 
-        public void DeleteUser(long userId, string token)
+        public void DeleteUser(long userId)
         {
-            User currentUser = auth.GetUser(token);
-            if (currentUser.Role != UserRole.Admin)
-            {
-                throw new ClosedAccessException(closedAccess);
-            }
-
             uow.Users.Delete(userId);
             uow.Save();
         }
 
-        public IList<ProjectViewDraft> GetCurrentUserProjects(long userId, string token)
+        public IList<ProjectViewDraft> GetCurrentUserProjects(long userId)
         {
-            User currentUser = auth.GetUser(token);
-            if(userId == currentUser.Id)
-            {
-                return Mapper.Map<IEnumerable<Project>, 
-                    IList<ProjectViewDraft>>(uow.Users.GetActiveUserProjects(currentUser));
-            }
-
-            if(currentUser.Role != UserRole.ResourcesManager)
-            {
-                throw new ClosedAccessException(closedAccess);
-            }
             return Mapper.Map<IEnumerable<Project>, IList<ProjectViewDraft>>(uow.Users.GetActiveUserProjects(userId));
         }
     }
