@@ -15,51 +15,33 @@ namespace ProjectManagementSystem.BusinessLogicLayer.Services
 {
     public class ProjectService : IProjectService
     {
-        private const string closedAccess = "Access closed! Your access level does not match the desired level.";
-
-        private IUserAuthorizationService auth;
-
         private IUnitOfWork uow;
 
-        public ProjectService(IUnitOfWork uow, IUserAuthorizationService auth)
+        public ProjectService(IUnitOfWork uow)
         {
             this.uow = uow;
-            this.auth = auth;
         }
 
-        public void CreateProject(ProjectViewDraft draft, string token)
+        public ProjectViewDraft GetProjectById(long id)
         {
-            User currentUser = auth.GetUser(token);
-            if(currentUser.Role != UserRole.ResourcesManager)
-            {
-                throw new ClosedAccessException(closedAccess);
-            }
+            return Mapper.Map<Project, ProjectViewDraft>(uow.Projects.Get(id));
+        }
 
+        public void CreateProject(CreateProjectDraft draft)
+        {
             DraftPropertiesChecker.Check(draft);
-            uow.Projects.Add(Mapper.Map<ProjectViewDraft, Project>(draft));
+            uow.Projects.Add(Mapper.Map<CreateProjectDraft, Project>(draft));
             uow.Save();
         }
 
-        public void DeleteProject(long projectId, string token)
+        public void DeleteProject(long projectId)
         {
-            User currentUser = auth.GetUser(token);
-            if (currentUser.Role != UserRole.ResourcesManager)
-            {
-                throw new ClosedAccessException(closedAccess);
-            }
-
             uow.Projects.Delete(projectId);
             uow.Save();
         }
 
-        public void FinishProject(long projectId, string token)
+        public void FinishProject(long projectId)
         {
-            User currentUser = auth.GetUser(token);
-            if (currentUser.Role != UserRole.ResourcesManager)
-            {
-                throw new ClosedAccessException(closedAccess);
-            }
-
             Project project = uow.Projects.Get(projectId);
             project.Status = ProjectStatus.Finished;
             project.FinishDate = DateTime.Now;
@@ -67,16 +49,10 @@ namespace ProjectManagementSystem.BusinessLogicLayer.Services
             uow.Save();
         }
 
-        public IList<UserViewDraft> GetCurrentProjectUsers(long projectId, string token)
+        public IList<UserViewDraft> GetCurrentProjectUsers(long projectId)
         {
-            User currentUser = auth.GetUser(token);
-            if(uow.Projects.IsUserPaticipateInProject(projectId, currentUser) 
-                || currentUser.Role == UserRole.ResourcesManager)
-            {
-                return Mapper.Map<IEnumerable<User>, IList<UserViewDraft>>(uow.Projects.GetActiveProjectUsers(projectId));
-            }
-
-            throw new ClosedAccessException(closedAccess);
+            return Mapper.Map<IEnumerable<User>, 
+                IList<UserViewDraft>>(uow.Projects.GetActiveProjectUsers(projectId));
         }
     }
 }

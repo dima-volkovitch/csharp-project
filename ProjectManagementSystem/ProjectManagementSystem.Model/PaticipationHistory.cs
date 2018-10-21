@@ -8,7 +8,7 @@ namespace ProjectManagementSystem.Model
 {
     public class PaticipationHistory : AEntity
     {
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
 
         public virtual User User { get; set; }
 
