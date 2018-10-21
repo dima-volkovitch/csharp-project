@@ -47,6 +47,7 @@
     <Compile Include="Repositories\IProjectRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\UnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="Services\IPaticipationHistoryService.cs" />
     <Compile Include="Services\IProjectService.cs" />
     <Compile Include="Services\IUserAuthorizationService.cs" />
     <Compile Include="Services\IUserService.cs" />

@@ -54,7 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\PaticipationHistoryException.cs" />
+    <Compile Include="Exceptions\ProjectNotFoundException.cs" />
     <Compile Include="Exceptions\PropertyNotFilledException.cs" />
+    <Compile Include="Services\PaticipationHistoryService.cs" />
     <Compile Include="Utils\Cryptographer.cs" />
     <Compile Include="Exceptions\ClosedAccessException.cs" />
     <Compile Include="Exceptions\InvalidLoginException.cs" />

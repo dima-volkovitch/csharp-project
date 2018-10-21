@@ -9,5 +9,8 @@ namespace ProjectManagementSystem.API.Repositories
 {
     public interface IPaticipationHistoryRepository : IRepository<PaticipationHistory>
     {
+        bool IsExistActive(long userId, long projectId);
+
+        IEnumerable<PaticipationHistory> GetByUserAndProjectId(long userId, long projectId, bool? isActive);
     }
 }

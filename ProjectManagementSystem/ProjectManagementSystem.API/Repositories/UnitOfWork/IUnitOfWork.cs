@@ -13,6 +13,8 @@ namespace ProjectManagementSystem.API.Repositories.UnitOfWork
 
         IProjectRepository Projects { get; }
 
+        IPaticipationHistoryRepository PaticipationHistories { get; }
+
         void Save();
     }
 }
